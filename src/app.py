@@ -2,11 +2,15 @@ from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
 from pickle import load
+import os
 
 app = Flask(__name__)
 
 # Cargar el modelo 
-model = load(open("/workspaces/Web_ML_Flask/models/xg_boost_diabetes_v1.sav", "rb"))
+#model = load(open("/workspaces/Web_ML_Flask/models/xg_boost_diabetes_v1.sav", "rb"))
+
+model_path = os.path.join(os.path.dirname(__file__), "models", "xg_boost_diabetes_v1.sav")
+model = load(open(model_path, "rb"))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
