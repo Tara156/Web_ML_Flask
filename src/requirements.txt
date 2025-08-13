@@ -16,3 +16,4 @@ xgboost
 seaborn>=0.12.0
 scikit-learn>=1.1.0
 gunicorn
+flask
